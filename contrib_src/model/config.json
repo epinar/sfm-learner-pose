@@ -1,49 +1,48 @@
 {
-  "id": "GET A UID FOR YOUR MODEL e.g. here https://www.uuidgenerator.net/",
+  "id": "ce585219-d617-4864-b225-06b52532ea95",
   "meta": {
-    "name": "",
-    "application_area": "",
-    "task": "",
-    "task_extended": "",
-    "data_type": "",
-    "data_source": ""
+    "name": "sfm-learner-pose",
+    "application_area": "SFM-learner",
+    "task": "Pose and Depth Estimation",
+    "task_extended": "Unsupervised Pose and Depth Estimation",
+    "data_type": "Image/Photo",
+    "data_source": "Capsule robot visual sensor"
   },
   "publication": {
-    "title": "",
-    "source": "",
-    "year": 1800,
-    "authors": "",
-    "email": "",
-    "abstract": "",
-    "url": "",
+    "title": "Unsupervised Odometry and Depth Learning for Endoscopic Capsule Robots",
+    "source": "arxiv",
+    "year": 2018,
+    "authors": "Turan Mehmet, Ornek Evin Pinar, Ibrahimli Nail, Giracoglu Can, Almalioglu Yasin, Yanik Mehmet Fatih, Sitti Metin",
+    "email": "turan@is.mpg.de",
+    "abstract": "In the last decade, many medical companies and research groups have tried to convert passive capsule endoscopes as an emerging and minimally invasive diagnostic technology into actively steerable endoscopic capsule robots which will provide more intuitive disease detection, targeted drug delivery and biopsy-like operations in the gastrointestinal(GI) tract. In this study, we introduce a fully unsupervised, real-time odometry and depth learner for monocular endoscopic capsule robots. We establish the supervision by warping view sequences and assigning the re-projection minimization to the loss function, which we adopt in multi-view pose estimation and single-view depth estimation network. Detailed quantitative and qualitative analyses of the proposed framework performed on non-rigidly deformable ex-vivo porcine stomach datasets proves the effectiveness of the method in terms of motion estimation and depth recovery.",
+    "url": "https://arxiv.org/abs/1803.01047",
     "google_scholar": "",
     "bibtex": ""
   },
   "viewer": "netron",
   "model": {
-    "description": "",
-    "architecture": "",
-    "learning_type": "",
+    "description": "The model consists of two networks trained together, first one being single-view depth network and the second one pose-reliability network. Both of them have decoder-encoder design, a stack of convolutional networks.",
+    "architecture": "Convolutional Neural Network(CNN), Decoder/Encoder",
+    "learning_type": "Unsupervised learning",
     "io": {
       "input": {
-        "format": [],
+        "format": ["image/png", "image/jpg", "image/jpeg"],
         "dim_limits": [
           {
-            "min": 0,
-            "max": 0
+            "min": 3
           },
           {
-            "min": 0
+            "min": 128
           },
           {
-            "min": 0
+            "min": 416
           }
         ]
       },
       "output": [
         {
-          "name": "",
-          "type": ""
+          "name": "Pose outputs",
+          "type": "mask_image"
         }
       ]
     }
